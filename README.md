@@ -30,10 +30,10 @@ public class PetCriteria {
 }
 ```
 
-#### Use your model a `@RequestParam` in controller
+#### Use your model in controller
 ```java
 @GetMapping("/pets")
-List<PetRecord> search(@RequestParam PetCriteria criteria, Pageable page) {
+List<PetRecord> search(PetCriteria criteria, Pageable page) {
     var predicate = criteria.id.match(pet.id)
             .and(criteria.born.match(pet.birthdate))
             .and(criteria.nickname.match(pet.name))
